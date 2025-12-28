@@ -1,7 +1,7 @@
 function HomePage() {
   return (
     <div>
-      Home page
+      Tareas
     </div>
   );
 }
