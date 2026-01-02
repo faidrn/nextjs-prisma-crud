@@ -1,4 +1,5 @@
 import { prisma } from "@/libs/prisma";
+import TaskCard from "@/components/TaskCard";
 
 async function loadTasks() {
   // obteniendo de la base de datos
@@ -22,20 +23,7 @@ async function HomePage() {
         className="grid grid-cols-3 gap-3 mt-2"
       >
         {tasks.map((task) => (
-          <div 
-            key={task.id}
-            className="bg-slate-900 p-3 hover:bg-slate-800 hover:cursor-pointer"
-          >
-            <h3
-              className="text-2xl font-bold mb-2"
-            >
-              {task.title}
-            </h3>
-            <p>{task.description}</p>
-            <p>
-              {new Date(task.createdAt).toLocaleDateString()}
-            </p>
-          </div>
+          <TaskCard key={task.id} task={task} />
         ))}
       </div>
     </section>
