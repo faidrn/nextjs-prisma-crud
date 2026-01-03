@@ -91,11 +91,33 @@ function NewPage({ params }) {
           onChange={(e) => setDescription(e.target.value)}
           value={description}
         ></textarea>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        
+        <div
+          className="flex justify-between items-center"
         >
-          Crear
-        </button>
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Crear
+          </button>
+
+          {/**Mostrar el boton eliminar cuando se cargan los datos de la API/BD */}
+          {resolvedParams.id && (
+            <button
+              type="button"
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2"
+              onClick={async () => {
+                await fetch(`/api/tasks/${resolvedParams.id}`, {
+                  method: 'DELETE'
+                });
+                router.push('/');
+              }}
+            >
+              Eliminar
+            </button>
+          )}
+        </div>
       </form>
     </div>
   );
