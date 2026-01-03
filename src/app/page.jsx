@@ -9,6 +9,8 @@ async function loadTasks() {
   // const res = await fetch('http://localhost:3000/api/tasks');
   // const data = await res.json();
   //return data;
+
+  // Tutorial -> https://www.youtube.com/watch?v=_SPoSMmN3ZU&t=806s
 }
 
 async function HomePage() {
